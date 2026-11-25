@@ -1,0 +1,170 @@
+/* Aplica estas reglas a todos los elementos de la página. */
+* {
+  box-sizing: border-box; /* El ancho incluye el contenido, el padding y el borde. */
+  margin: 0; /* Quita los márgenes que el navegador agrega por defecto. */
+  padding: 0; /* Quita el espacio interior predeterminado. */
+}
+
+/* Estilos generales y centrado de la aplicación en la ventana. */
+body {
+  display: flex; /* Activa Flexbox para poder centrar el contenedor. */
+  min-height: 100vh; /* Hace que el body mida como mínimo toda la altura de la ventana. */
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; /* Define la tipografía, con alternativas. */
+  background-image: url('clima.webp'); /* Usa clima.webp como imagen de fondo. */
+  background-size: cover; /* Cubre la pantalla; puede recortar un poco la imagen. */
+  justify-content: center; /* Centra el contenido horizontalmente. */
+  align-items: center; /* Centra el contenido verticalmente. */
+  padding: 20px; /* Deja espacio entre el contenido y los bordes de la ventana. */
+  color: #ffffff; /* Define blanco como color de texto predeterminado. */
+}
+
+/* Caja principal que contiene el título, la búsqueda y los resultados. */
+.contenedor {
+  width: 100%; /* Permite que la caja se reduzca en pantallas pequeñas. */
+  max-width: 420px; /* Evita que la caja supere los 420 píxeles. */
+  padding: 32px 28px; /* Espacio interior: 32px arriba/abajo y 28px a los lados. */
+  text-align: center; /* Centra el texto de los elementos internos. */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Agrega una sombra sutil al texto. */
+  background: rgba(255, 255, 255, 0.14); /* Fondo blanco semitransparente. */
+  backdrop-filter: blur(14px); /* Desenfoca lo que queda detrás de la caja. */
+  -webkit-backdrop-filter: blur(14px); /* Compatibilidad del desenfoque con Safari. */
+  border: 1px solid rgba(255, 255, 255, 0.25); /* Borde fino y translúcido. */
+  border-radius: 24px; /* Redondea las esquinas. */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombra exterior para dar profundidad. */
+  display: flex; /* Organiza los elementos internos con Flexbox. */
+  flex-wrap: wrap; /* Permite que los elementos bajen de línea si falta espacio. */
+  justify-content: center; /* Centra los elementos en el eje horizontal. */
+  gap: 10px; /* Deja 10px de separación entre los elementos. */
+}
+
+/* Título de la aplicación. */
+h1 {
+  width: 100%; /* Ocupa toda la fila del contenedor flexible. */
+  font-size: 1.6rem; /* Define el tamaño del texto relativo al tamaño base. */
+  font-weight: 600; /* Hace el texto seminegrita. */
+  letter-spacing: 0.5px; /* Separa ligeramente las letras. */
+  margin-bottom: 14px; /* Deja espacio debajo del título. */
+  color: #ffffff; /* Pinta el título de blanco. */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Mejora el contraste con una sombra. */
+}
+
+/* Campo donde se escribe el nombre de la ciudad. */
+input[type="text"] {
+  flex: 1; /* Ocupa el espacio libre disponible en la fila. */
+  min-width: 180px; /* Evita que el campo se vuelva demasiado estrecho. */
+  padding: 12px 16px; /* Agrega espacio dentro del campo. */
+  font-size: 15px; /* Define el tamaño del texto escrito. */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Dibuja un borde tenue. */
+  border-radius: 12px; /* Redondea las esquinas del campo. */
+  background: rgba(255, 255, 255, 0.2); /* Aplica un fondo blanco translúcido. */
+  color: #ffffff; /* Muestra en blanco el texto escrito. */
+  outline: none; /* Quita el contorno predeterminado del navegador. */
+  transition: all 0.25s ease; /* Suaviza los cambios de estilo en un cuarto de segundo. */
+}
+
+/* Color del texto de ayuda que aparece antes de escribir. */
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.75); /* Blanco con transparencia para diferenciarlo del texto escrito. */
+}
+
+/* Estilos del campo mientras está seleccionado para escribir. */
+input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.28); /* Aclara el fondo para indicar que está activo. */
+  border-color: #ffffff; /* Resalta el borde en blanco. */
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15); /* Agrega un halo alrededor del campo. */
+}
+
+/* Apariencia normal del botón de búsqueda. */
+button {
+  padding: 12px 20px; /* Espacio interior: 12px arriba/abajo y 20px a los lados. */
+  font-size: 15px; /* Define el tamaño del texto del botón. */
+  font-weight: 600; /* Hace el texto seminegrita. */
+  background: #ffffff; /* Pinta el fondo de blanco. */
+  color: #1e3c72; /* Pinta el texto de azul oscuro. */
+  border: none; /* Quita el borde predeterminado. */
+  border-radius: 12px; /* Redondea las esquinas. */
+  cursor: pointer; /* Muestra el cursor de mano al pasar sobre el botón. */
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease; /* Anima suavemente el movimiento, el fondo y la sombra. */
+}
+
+/* Efecto que aparece al pasar el cursor sobre el botón. */
+button:hover {
+  background: #f0f7ff; /* Cambia el fondo a un blanco azulado. */
+  transform: translateY(-1px); /* Mueve el botón 1px hacia arriba. */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18); /* Refuerza la sombra al pasar el cursor. */
+}
+
+/* Efecto mientras se mantiene presionado el botón. */
+button:active {
+  transform: translateY(0); /* Devuelve el botón a su posición original. */
+}
+
+/* Distribución de los datos del clima que agrega JavaScript. */
+#datosClima {
+  width: 100%; /* Hace que los resultados ocupen toda la fila. */
+  margin-top: 12px; /* Separa los resultados del campo y del botón. */
+  display: flex; /* Organiza los resultados con Flexbox. */
+  flex-direction: column; /* Coloca cada resultado debajo del anterior. */
+  align-items: center; /* Centra cada resultado horizontalmente. */
+}
+
+/* Estos estilos aparecen solo cuando JavaScript agregó resultados al contenedor. */
+#datosClima:not(:empty) {
+  padding-top: 22px; /* Deja espacio antes de los resultados. */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Separa los resultados con una línea tenue. */
+  animation: fadeIn 0.4s ease; /* Reproduce la animación fadeIn durante 0.4 segundos. */
+}
+
+/* Nombre de la ciudad. */
+#datosClima h2 {
+  order: 1; /* Lo coloca primero dentro de la columna flexible. */
+  font-size: 1.9rem; /* Aumenta el tamaño del nombre de la ciudad. */
+  font-weight: 700; /* Hace el nombre negrita. */
+  letter-spacing: 0.3px; /* Separa un poco las letras. */
+}
+
+/* Ícono del clima: aparece debajo de la ciudad aunque JavaScript lo agregue al final. */
+#datosClima img {
+  order: 2; /* Lo coloca después del nombre de la ciudad. */
+  width: 90px; /* Define el ancho del ícono. */
+  height: 90px; /* Define la altura del ícono. */
+  margin: 4px 0; /* Agrega 4px de espacio arriba y abajo. */
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25)); /* Agrega sombra al ícono. */
+}
+
+/* Temperatura principal: es el primer párrafo del contenedor de resultados. */
+#datosClima p:nth-of-type(1) {
+  order: 3; /* La coloca después del ícono. */
+  font-size: 1.5rem; /* Destaca la temperatura con texto más grande. */
+  font-weight: 700; /* Hace la temperatura negrita. */
+  margin-bottom: 12px; /* Separa la temperatura de los datos siguientes. */
+  background: rgba(255, 255, 255, 0.16); /* Le da un fondo claro translúcido. */
+  padding: 8px 20px; /* Agrega espacio alrededor de la temperatura. */
+  border-radius: 50px; /* Redondea mucho el borde para crear una forma de píldora. */
+}
+
+/* Tarjetas de descripción, humedad y otros datos: son los párrafos siguientes. */
+#datosClima p:nth-of-type(2),
+#datosClima p:nth-of-type(3),
+#datosClima p:nth-of-type(4) {
+  order: 4; /* Los coloca después de la temperatura. */
+  width: 100%; /* Hace que cada tarjeta ocupe todo el ancho disponible. */
+  font-size: 0.95rem; /* Define un tamaño ligeramente menor que el texto base. */
+  background: rgba(0, 0, 0, 0.16); /* Usa un fondo oscuro semitransparente. */
+  padding: 10px 14px; /* Agrega espacio alrededor del texto. */
+  border-radius: 12px; /* Redondea las esquinas de cada tarjeta. */
+  margin-top: 8px; /* Separa cada tarjeta de la anterior. */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Dibuja un borde blanco muy tenue. */
+}
+
+/* Define los pasos de la animación de entrada de los resultados. */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Comienza invisible. */
+    transform: translateY(8px); /* Comienza 8px más abajo. */
+  }
+  to {
+    opacity: 1; /* Termina completamente visible. */
+    transform: translateY(0); /* Termina en su posición normal. */
+  }
+}
